@@ -5,12 +5,13 @@ import ButtonLink from "./ButtonLink";
 import CartIcon from "./icons/CartIcon";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import Link from "next/link";
 
 
 const Bg = styled.div`
     background-color:#07091F;
     color:#fff;
-    padding:50 0;
+    padding:50px 0;
     
 `;
 const Title = styled.h1`
@@ -75,15 +76,16 @@ export default function Featured({product}) {
                             <Desc>{product.description}</Desc>
                             <ButtonsWrapper>
                                 <ButtonLink href={'/product/'+product._id} outline={1} white={1}>Read more</ButtonLink>
+                                <Link href={'/cart'}>
                                 <Button white onClick={addFeaturedToCart}>
                                     <CartIcon />
                                     Add to cart
                                 </Button>
+                                </Link>
                             </ButtonsWrapper>
                         </div>
                     </Column>
                     <div>
-                      
                         <img src="https://f-next-ecomerce.s3.amazonaws.com/1691320903064.png" alt=""/>
                     </div>
                 </ColumnsWrapper>    

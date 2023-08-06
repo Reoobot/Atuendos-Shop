@@ -8,6 +8,7 @@ import CartIcon from "@/components/icons/CartIcon";
 import WhiteBox from "@/components/whiteBox";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
+import Link from "next/link";
 import { useContext } from "react";
 import { styled } from "styled-components";
 
@@ -48,13 +49,14 @@ export default function ProductPage({product}) {
                         </div>
                         <div>
                             <div>
-
-                           <Button 
-                                primary 
-                                onClick={() => addProduct(product._id)}>
-                           <CartIcon />
-                               Add to cart
-                            </Button>  
+                            <Link href={'/cart'}>
+                                <Button 
+                                        primary 
+                                        onClick={() => addProduct(product._id)}>
+                                <CartIcon />
+                                    Add to cart
+                                    </Button>  
+                            </Link>
                             </div>
                         </div>
                        </PriceRow>

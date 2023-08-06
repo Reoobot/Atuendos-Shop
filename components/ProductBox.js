@@ -75,7 +75,11 @@ const AnimatedImage = styled.img`
   animation: ${slideInFromTop} 1.5s ease; /* Aplicar la animación */
 `;
 
-
+const Stylecart = styled(Link)`
+    text-decoration:none;
+    color:black;
+    font-weight:600;
+`;
 
 export default function ProductBox({_id,title,description,price, images}) {
     
@@ -91,14 +95,15 @@ export default function ProductBox({_id,title,description,price, images}) {
             </WhiteBox>
             <ProductInfoBox>
                <Title href={url}>{title}</Title>
-     
                <PriceRow>
                     <Price>
                         {/* ${price} */}
                             €{price}
                     </Price>
-                        <Button block onClick={() => addProduct(_id)} primary outline>
-                            Add to cart
+                        <Button href={url} block onClick={() => addProduct(_id)} primary outline>
+                            <Stylecart href='/cart'>
+                                Add to cart
+                            </Stylecart>
                         </Button> 
                </PriceRow>
             </ProductInfoBox>
