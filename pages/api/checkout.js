@@ -46,8 +46,8 @@ const session = await stripe.checkout.sessions.create({
     line_items,
     mode:'payment',
     customer_email:email,
-    success_url: 'http://localhost:3000/cart?success=1',
-    cancel_url: 'http://localhost:3000/cart?canceled=1',
+    success_url: process.env.PUBLIC_URL + '/cart?success=1',
+    cancel_url: process.env.PUBLIC_URL + '/cart?canceled=1',
     metadata: {orderId:orderDoc._id.toString(),test:'ok'},
 });
 
